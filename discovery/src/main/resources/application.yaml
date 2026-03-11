@@ -1,6 +1,10 @@
 spring:
   application:
     name: ${SPRING_APPLICATION_NAME:discovery}
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: false
 
 server:
   port: ${DISCOVERY_SERVER_PORT:8761}
