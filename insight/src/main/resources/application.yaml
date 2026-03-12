@@ -17,8 +17,6 @@ spring:
     consumer:
       group-id: ${KAFKA_CONSUMER_GROUP_ID:insight-group}
       auto-offset-reset: ${KAFKA_AUTO_OFFSET_RESET:earliest}
-      key-deserializer: ${KAFKA_CONSUMER_KEY_DESERIALIZER:org.apache.kafka.common.serialization.StringDeserializer}
-      value-deserializer: ${KAFKA_CONSUMER_VALUE_DESERIALIZER:org.apache.kafka.common.serialization.StringDeserializer}
   data:
     redis:
       host: ${REDIS_HOST:localhost}
@@ -26,7 +24,8 @@ spring:
 
 app:
   kafka:
-    payment-topic: ${PAYMENT_TOPIC:payment.created}
+    topics:
+      payment-created: ${PAYMENT_TOPIC:payment.created}
 
 server:
   port: ${INSIGHT_SERVER_PORT:8082}
